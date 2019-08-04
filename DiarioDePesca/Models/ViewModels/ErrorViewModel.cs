@@ -1,6 +1,6 @@
 using System;
 
-namespace DiarioDePesca.Models
+namespace DiarioDePesca.Models.ViewModels
 {
     public class ErrorViewModel
     {

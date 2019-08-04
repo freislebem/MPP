@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using DiarioDePesca.Models;
+using DiarioDePesca.Models.ViewModels;
 
 namespace DiarioDePesca.Controllers
 {
@@ -12,11 +12,15 @@ namespace DiarioDePesca.Controllers
     {
         public IActionResult Index()
         {
+            ViewData["Title"] = "Diário de Pesca - MPP";
+            ViewData["Message"] = "Diário de Pesca - MPP";
             return View();
         }
 
         public IActionResult Privacy()
         {
+            ViewData["Title"] = "Política de Privacidade";
+            ViewData["Message"] = "Detalhes sobre Política de Privacidade do Diário";
             return View();
         }
 
