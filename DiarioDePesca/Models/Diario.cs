@@ -1,19 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace DiarioDePesca.Models
 {
     public class Diario
     {
         public int Id { get; set; }
-        public DateTime DataRegistro { get; set; }
-        //public DateTime DataPescaria { get; set; }
-        public DateTime Inicio { get; set; }
-        public DateTime Fim { get; set; }
+        public DateTime DtaRegistro { get; set; }
+        public DateTime DtaPescaria { get; set; }
+
+        public string Uf { get; set; }
+        public string Cidade { get; set; }
+        public string Praia { get; set; }
         public string Local { get; set; }
-        public string PressaoA { get; set; }
+
+        public double Temperatura { get; set; }
+        public string Pressao { get; set; }
         public string MareCheia { get; set; }
         public string MareVazia { get; set; }
 
@@ -23,6 +25,10 @@ namespace DiarioDePesca.Models
 
         public string Anzol { get; set; }
         public string Obs { get; set; }
+
+        public ICollection<Item> Items { get; set; } = new List<Item>();
+        public ICollection<CondicaoDia> CondicaoDias { get; set; } = new List<CondicaoDia>();
+        public ICollection<CorAgua> CorAguas { get; set; } = new List<CorAgua>();
     }
     
 }
