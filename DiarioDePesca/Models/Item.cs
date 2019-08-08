@@ -14,12 +14,31 @@ namespace DiarioDePesca.Models
 
         public double TamanhoMaiorPeixe { get; set; }
         public double PesoMaiorPeixe { get; set; }
-        public string Isca { get; set; }
-        public string Anzol { get; set; }
         public double Pernada { get; set; }
 
-        public ICollection<Especie> Especies { get; set; } = new List<Especie>();
-        public ICollection<Isca> Iscas { get; set; } = new List<Isca>();
-        public ICollection<Anzol> Anzols { get; set; } = new List<Anzol>();
+        public Diario Diario { get; set; }
+        public Especie Especie { get; set; }
+        public Isca Isca { get; set; }
+        public Anzol Anzol { get; set; }
+
+        public Item()
+        {
+
+        }
+
+        public Item(int id, int idDiario, int idEspecie, int qtde, double tamanhoMaiorPeixe, double pesoMaiorPeixe, double pernada, Diario diario, Especie especie, Isca isca, Anzol anzol)
+        {
+            Id = id;
+            IdDiario = idDiario;
+            IdEspecie = idEspecie;
+            Qtde = qtde;
+            TamanhoMaiorPeixe = tamanhoMaiorPeixe;
+            PesoMaiorPeixe = pesoMaiorPeixe;
+            Pernada = pernada;
+            Diario = diario;
+            Especie = especie;
+            Isca = isca;
+            Anzol = anzol;
+        }
     }
 }

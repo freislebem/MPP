@@ -9,5 +9,18 @@ namespace DiarioDePesca.Models
     {
         public int Id { get; set; }
         public string Descricao { get; set; }
+        public Diario Diario { get; set; }
+
+        public CorAgua()
+        {
+
+        }
+
+        public CorAgua(int id, string descricao, Diario diario)
+        {
+            Id = id;
+            Descricao = descricao;
+            Diario = diario;
+        }
     }
 }
