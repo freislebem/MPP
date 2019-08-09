@@ -10,7 +10,7 @@ namespace DiarioDePesca.Models
         public int Id { get; set; }
         public string Descricao { get; set; }
 
-        public ICollection<Item> Items { get; set; } = new List<Item>();
+        //public ICollection<Item> Items { get; set; } = new List<Item>();
 
         public Isca()
         {

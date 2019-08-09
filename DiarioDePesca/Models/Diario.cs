@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 
 namespace DiarioDePesca.Models
@@ -8,6 +9,9 @@ namespace DiarioDePesca.Models
     {
         public int Id { get; set; }
         public DateTime DtaRegistro { get; set; }
+
+        [Display(Name = "Data da pescaria")]
+        [Required(ErrorMessage = "A data da pescaria é obrigatória")]
         public DateTime DtaPescaria { get; set; }
 
         public string Uf { get; set; }
@@ -16,19 +20,32 @@ namespace DiarioDePesca.Models
         public string Local { get; set; }
 
         public double Temperatura { get; set; }
+
+        [Display(Name = "Pressão atmosférica")]
         public double Pressao { get; set; }
 
+        [Display(Name = "Horário da maré cheia")]
         public DateTime HorMareCheia{ get; set; }
+
+        [Display(Name = "Medida da maré cheia")]
         public double MareCheia { get; set; }
 
+        [Display(Name = "Horário da maré vazia")]
         public DateTime HorMareVazia { get; set; }
+
+        [Display(Name = "Medida da maré vazia")]
         public double MareVazia { get; set; }
 
+        [Display(Name = "Condição do dia")]
         public string CondicaoDia { get; set; }
         public string Lua { get; set; }
+
+        [Display(Name = "Cor da água")]
         public string CorAgua { get; set; }
 
         public string Anzol { get; set; }
+
+        [Display(Name = "Observações")]
         public string Obs { get; set; }
 
         public ICollection<Item> Items { get; set; } = new List<Item>();
@@ -74,10 +91,10 @@ namespace DiarioDePesca.Models
             Items.Remove(item);
         }
 
-        public int TotalPeixes(DateTime inicial, DateTime final)
-        {
-            return Items.Where(Diario => item.)
-        }
+        //   public int TotalPeixes(DateTime inicial, DateTime final)
+        //   {
+        //       return Items.Where(Diario => item.)
+        //}
     }
-    
+
 }

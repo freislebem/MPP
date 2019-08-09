@@ -13,6 +13,12 @@ namespace DiarioDePesca.Models
         {
         }
 
-        public DbSet<DiarioDePesca.Models.Especie> Especie { get; set; }
+        public DbSet<Especie> Especie { get; set; }
+        public DbSet<Diario> Diario { get; set; }
+        public DbSet<Item> Item { get; set; }
+        public DbSet<CondicaoDia> CondicaoDia { get; set; }
+        public DbSet<CorAgua> CorAgua { get; set; }
+        public DbSet<Isca> Isca { get; set; }
+        public DbSet<Anzol> Anzol { get; set; }
     }
 }
