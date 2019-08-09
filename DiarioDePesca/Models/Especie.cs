@@ -12,8 +12,9 @@ namespace DiarioDePesca.Models
         [Required(ErrorMessage = "É obrigatório informar o nome peixe")]
         public string Nome { get; set; }
 
-        [Display(Name = "Peixe também conhecido como")]
+        [Display(Name = "Também conhecido como")]
         public string NomeB { get; set; }
+        [Display(Name = "Nome científico")]
         public string NomeCientifico { get; set; }
 
         //public ICollection<Item> Items  { get; set; } = new List<Item>();
