@@ -14,22 +14,24 @@ namespace DiarioDePesca.Models
 
         [Display(Name = "Também conhecido como")]
         public string NomeB { get; set; }
+
         [Display(Name = "Nome científico")]
         public string NomeCientifico { get; set; }
 
-        //public ICollection<Item> Items  { get; set; } = new List<Item>();
+        public Item Item { get; set; }
 
         public Especie()
         {
 
         }
 
-        public Especie(int id, string nome, string nomeB, string nomeCientifico)
+        public Especie(int id, string nome, string nomeB, string nomeCientifico, Item item)
         {
             Id = id;
             Nome = nome;
             NomeB = nomeB;
             NomeCientifico = nomeCientifico;
+            Item = item;
         }
     }
 }

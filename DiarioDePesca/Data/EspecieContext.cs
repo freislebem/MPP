@@ -14,6 +14,7 @@ namespace DiarioDePesca.Models
         }
 
         public DbSet<Especie> Especie { get; set; }
+        public DbSet<Usuario> Usuario { get; set; }
         public DbSet<Diario> Diario { get; set; }
         public DbSet<Item> Item { get; set; }
         public DbSet<CondicaoDia> CondicaoDia { get; set; }

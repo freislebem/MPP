@@ -8,8 +8,7 @@ namespace DiarioDePesca.Models
     public class Item
     {
         public int Id { get; set; }
-        public int IdDiario { get; set; }
-        public int IdEspecie { get; set; }
+        public DateTime DtaPescaria { get; set; }
         public int Qtde { get; set; }
 
         public double TamanhoMaiorPeixe { get; set; }
@@ -26,11 +25,10 @@ namespace DiarioDePesca.Models
 
         }
 
-        public Item(int id, int idDiario, int idEspecie, int qtde, double tamanhoMaiorPeixe, double pesoMaiorPeixe, double pernada, Diario diario, Especie especie, Isca isca, Anzol anzol)
+        public Item(int id, DateTime dtaPescaria, int qtde, double tamanhoMaiorPeixe, double pesoMaiorPeixe, double pernada, Diario diario, Especie especie, Isca isca, Anzol anzol)
         {
             Id = id;
-            IdDiario = idDiario;
-            IdEspecie = idEspecie;
+            DtaPescaria = dtaPescaria;
             Qtde = qtde;
             TamanhoMaiorPeixe = tamanhoMaiorPeixe;
             PesoMaiorPeixe = pesoMaiorPeixe;

@@ -36,19 +36,11 @@ namespace DiarioDePesca.Models
         [Display(Name = "Medida da maré vazia")]
         public double MareVazia { get; set; }
 
-        [Display(Name = "Condição do dia")]
-        public string CondicaoDia { get; set; }
-        public string Lua { get; set; }
-
-        [Display(Name = "Cor da água")]
-        public string CorAgua { get; set; }
-
-        public string Anzol { get; set; }
-
         [Display(Name = "Observações")]
         public string Obs { get; set; }
 
         public ICollection<Item> Items { get; set; } = new List<Item>();
+        public Usuario Usuario { get; set; }
         public CondicaoDia CondicaoDias { get; set; }
         public CorAgua CorAguas { get; set; }
 
@@ -57,7 +49,7 @@ namespace DiarioDePesca.Models
 
         }
 
-        public Diario(int id, DateTime dtaRegistro, DateTime dtaPescaria, string uf, string cidade, string praia, string local, double temperatura, double pressao, DateTime horMareCheia, double mareCheia, DateTime horMareVazia, double mareVazia, string condicaoDia, string lua, string corAgua, string anzol, string obs, CondicaoDia condicaoDias, CorAgua corAguas)
+        public Diario(int id, DateTime dtaRegistro, DateTime dtaPescaria, string uf, string cidade, string praia, string local, double temperatura, double pressao, DateTime horMareCheia, double mareCheia, DateTime horMareVazia, double mareVazia, string obs, Usuario usuario, CondicaoDia condicaoDias, CorAgua corAguas)
         {
             Id = id;
             DtaRegistro = dtaRegistro;
@@ -72,11 +64,8 @@ namespace DiarioDePesca.Models
             MareCheia = mareCheia;
             HorMareVazia = horMareVazia;
             MareVazia = mareVazia;
-            CondicaoDia = condicaoDia;
-            Lua = lua;
-            CorAgua = corAgua;
-            Anzol = anzol;
             Obs = obs;
+            Usuario = usuario;
             CondicaoDias = condicaoDias;
             CorAguas = corAguas;
         }
@@ -91,10 +80,11 @@ namespace DiarioDePesca.Models
             Items.Remove(item);
         }
 
-        //   public int TotalPeixes(DateTime inicial, DateTime final)
-        //   {
-        //       return Items.Where(Diario => item.)
-        //}
+        public int TotalItens(DateTime inicial, DateTime final)
+        {
+            return Items.Where(it => it.DtaPescaria >= inicial && it.DtaPescaria <= final).Sum(it => it.Qtde);
+
+        }
     }
 
 }

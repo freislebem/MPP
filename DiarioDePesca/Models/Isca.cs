@@ -9,18 +9,18 @@ namespace DiarioDePesca.Models
     {
         public int Id { get; set; }
         public string Descricao { get; set; }
-
-        //public ICollection<Item> Items { get; set; } = new List<Item>();
+        public Item Item { get; set; }
 
         public Isca()
         {
 
         }
 
-        public Isca(int id, string descricao)
+        public Isca(int id, string descricao, Item item)
         {
             Id = id;
             Descricao = descricao;
+            Item = item;
         }
     }
 }
