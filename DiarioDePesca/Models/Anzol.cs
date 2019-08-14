@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -7,7 +8,8 @@ namespace DiarioDePesca.Models
 {
     public class Anzol
     {
-        public int Id { get; set; }
+        [Key]
+        public int AnzolId { get; set; }
         public string Descricao { get; set; }
         public Item Item { get; set; }
         
@@ -16,9 +18,9 @@ namespace DiarioDePesca.Models
 
         }
 
-        public Anzol(int id, string descricao, Item item)
+        public Anzol(int anzolId, string descricao, Item item)
         {
-            Id = id;
+            AnzolId = anzolId;
             Descricao = descricao;
             Item = item;
         }

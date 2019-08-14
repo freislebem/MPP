@@ -33,7 +33,7 @@ namespace DiarioDePesca.Controllers
             }
 
             var especie = await _context.Especie
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.EspecieId == id);
             if (especie == null)
             {
                 return NotFound();
@@ -87,7 +87,7 @@ namespace DiarioDePesca.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,NomeB,NomeCientifico")] Especie especie)
         {
-            if (id != especie.Id)
+            if (id != especie.EspecieId)
             {
                 return NotFound();
             }
@@ -101,7 +101,7 @@ namespace DiarioDePesca.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!EspecieExists(especie.Id))
+                    if (!EspecieExists(especie.EspecieId))
                     {
                         return NotFound();
                     }
@@ -124,7 +124,7 @@ namespace DiarioDePesca.Controllers
             }
 
             var especie = await _context.Especie
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.EspecieId == id);
             if (especie == null)
             {
                 return NotFound();
@@ -146,7 +146,7 @@ namespace DiarioDePesca.Controllers
 
         private bool EspecieExists(int id)
         {
-            return _context.Especie.Any(e => e.Id == id);
+            return _context.Especie.Any(e => e.EspecieId == id);
         }
     }
 }

@@ -6,7 +6,8 @@ namespace DiarioDePesca.Models
 {
     public class Especie
     {
-        public int Id { get; set; }
+        [Key]
+        public int EspecieId { get; set; }
 
         [Display(Name ="Nome do Peixe")]
         [Required(ErrorMessage = "É obrigatório informar o nome peixe")]
@@ -25,9 +26,9 @@ namespace DiarioDePesca.Models
 
         }
 
-        public Especie(int id, string nome, string nomeB, string nomeCientifico, Item item)
+        public Especie(int especieId, string nome, string nomeB, string nomeCientifico, Item item)
         {
-            Id = id;
+            EspecieId = especieId;
             Nome = nome;
             NomeB = nomeB;
             NomeCientifico = nomeCientifico;

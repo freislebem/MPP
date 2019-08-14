@@ -7,6 +7,7 @@ namespace DiarioDePesca.Models
 {
     public class Diario
     {
+        [Key]
         public int Id { get; set; }
         public DateTime DtaRegistro { get; set; }
 
@@ -40,8 +41,14 @@ namespace DiarioDePesca.Models
         public string Obs { get; set; }
 
         public ICollection<Item> Items { get; set; } = new List<Item>();
+
+        public int UsuarioId { get; set; }
         public Usuario Usuario { get; set; }
+
+        public int CondicaoId { get; set; }
         public CondicaoDia CondicaoDias { get; set; }
+
+        public int CorAguaId { get; set; }
         public CorAgua CorAguas { get; set; }
 
         public Diario()

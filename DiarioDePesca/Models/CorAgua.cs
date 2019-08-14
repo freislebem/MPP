@@ -8,7 +8,8 @@ namespace DiarioDePesca.Models
 {
     public class CorAgua
     {
-        public int Id { get; set; }
+        [Key]
+        public int CorAguaId { get; set; }
 
         [Display(Name ="Cor da água")]
         [Required(ErrorMessage ="Este campo é obrigatório")]
@@ -21,9 +22,9 @@ namespace DiarioDePesca.Models
 
         }
 
-        public CorAgua(int id, string descricao, Diario diario)
+        public CorAgua(int corAguaId, string descricao, Diario diario)
         {
-            Id = id;
+            CorAguaId = corAguaId;
             Descricao = descricao;
             Diario = diario;
         }

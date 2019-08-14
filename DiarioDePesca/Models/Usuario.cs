@@ -8,8 +8,10 @@ namespace DiarioDePesca.Models
 {
     public class Usuario
     {
-        public int Id { get; set; }
+        [Key]
+        public int UsuarioId { get; set; }
         [Required(ErrorMessage ="Este campo é obrigatório")]
+        [EmailAddress]
         public string email { get; set; }
         [Required(ErrorMessage = "Este campo é obrigatório")]
         public string login { get; set; }
@@ -22,9 +24,9 @@ namespace DiarioDePesca.Models
 
         }
 
-        public Usuario(int id, string email, string login, string celular)
+        public Usuario(int usuarioId, string email, string login, string celular)
         {
-            Id = id;
+            UsuarioId = usuarioId;
             this.email = email;
             this.login = login;
             this.celular = celular;
