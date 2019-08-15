@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using DiarioDePesca.Models;
+using DiarioDePesca.Data;
 
 namespace DiarioDePesca
 {
@@ -38,14 +39,17 @@ namespace DiarioDePesca
 
             services.AddDbContext<EspecieContext>(options =>
                     options.UseMySql(Configuration.GetConnectionString("EspecieContext"), builder => builder.MigrationsAssembly("DiarioDePesca")));
+
+            services.AddScoped<SeedingService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, SeedingService seedingService)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                seedingService.Seed(); // caso tivesse dados para popular para testes, aqui executaria no ambiente de desenvolvimento
             }
             else
             {
